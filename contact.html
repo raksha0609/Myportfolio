@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+body{
+    background-color: #eff4fd;
+    font-family: sans-serif;
+    text-align: center;
+}
+span{
+    color:brown;
+}
+.contact-box{
+    width: 500px;
+    background-color: #fff;
+    box-shadow:0 0 20px 0 #999;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    position:absolute;
+}
+form{
+    margin:35px;
+}
+.input-field{
+    width:400px;
+    height: 40px;
+    margin-top:20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #777;
+    border-radius:14px;
+    outline:none;
+}
+
+.btn{
+    border-radius: 20px;
+    color:#fff;
+    margin-top: 18px;
+    padding: 10px;
+    background-color: #212121;
+    font-size:12px;
+    border: none;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+    <h1><b><span>Contact Form</span></b></h1>
+    <div class="contact-box">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <input type="text" name="name" class="input-field" placeholder="Your Name" required>
+            <input type="email" name="email" class="input-field" placeholder="Your email" required>
+            <input type="text" name="Phone Number" class="input-field" placeholder="Your Number" required>
+            <!-- <textarea name="message" class="textarea-field" placeholder="Your message" required></textarea> -->
+            <button type="submit" class="btn" id="submitBtn">Send Message</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "sgraksha1@gmail.com",
+        Password: "B5E98651DDB7A9DC5738A80B0DAE0D4F1095",
+        To: 'elsaa8395@gmail.com',
+        From: document.getElementById("email").value,
+        Subject: "New contact form enquiry",
+        Body: "And this is the body"
+      }).then(
+        message => alert(message)
+      );
+    }
+    
+    function reset() {
+      // Add logic to reset form fields if needed
+      console.log("Form reset logic here");
+    }
+  </script>
+</body>
+</html>
+
+<!-- /* .textarea-field{
+    height: 150px;
+    padding-top: 10px; 
+    width:400px;
+    margin-top:20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #777;
+    border-radius:14px;
+    outline:none;    
+} */ -->
